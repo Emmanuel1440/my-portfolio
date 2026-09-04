@@ -10,8 +10,12 @@ const projects = [
       "A machine learning-powered web application that automatically classifies Gmail emails as spam or legitimate. Built using Flask, Logistic Regression, TF-IDF vectorization, and the Gmail API with OAuth 2.0 authentication. The system periodically scans unread emails and presents classification results through an interactive dashboard.",
     tech: ["PYTHON", "FLASK", "SCIKIT-LEARN", "TF-IDF", "LOGISTIC REGRESSION", "GMAIL API", "SQLITE"],
     github: "https://github.com/Emmanuel1440/AI-Email-Spam-Classification-System",
-    image: "/spam.png",         // public/spam-screenshot.jpg
-    videoSrc: "/video/spam-demo.mp4",      // public/video/spam-demo.mp4
+    
+
+    image: `${import.meta.env.BASE_URL}spam.png`,
+    videoSrc: `${import.meta.env.BASE_URL}video/spam-demo.mp4`,
+
+   
     badges: ["Featured", "Machine Learning", "Academic Project"],
     stats: { items: 7, focal: "Machine Learning", detail: "OAuth Authentication" },
     overview: "This system integrates directly with user accounts via OAuth 2.0, securely scanning incoming data pipelines and transforming unstructured natural language text streams into classification tensors in real-time.",
@@ -24,8 +28,9 @@ const projects = [
       "A modern, responsive corporate website developed for Transitial International Security Africa Ltd. Features service pages, careers portal, contact forms, gallery, SEO optimization, responsive UI, and a professional company profile built using Laravel and React.",
     tech: ["LARAVEL", "REACT", "MYSQL", "TAILWIND CSS", "PHP", "VITE"],
     github: "https://github.com/Emmanuel1440/tisa-security",
-    image: "/tisa.png",         // public/tisa-screenshot.jpg
-    videoSrc: "/video/tisa-demo.mp4",      // public/video/tisa-demo.mp4
+    image: `${import.meta.env.BASE_URL}tisa.png`,
+    videoSrc: `${import.meta.env.BASE_URL}video/tisa-demo.mp4`,
+
     badges: ["Featured", "Client Project", "Full Stack"],
     stats: { items: 6, focal: "Full Stack architecture", detail: "SEO & Form Management" },
     overview: "A highly dynamic enterprise informational portal tailor-made to handle public queries, dynamic careers routing, and modular component architecture.",
@@ -38,8 +43,9 @@ const projects = [
       "A secure real-time messaging platform supporting instant communication between authenticated users. Built with WebSockets, JWT authentication, PostgreSQL, and Node.js for scalable live messaging.",
     tech: ["NODE.JS", "WEBSOCKETS", "JWT", "POSTGRESQL", "EXPRESS"],
     github: "https://github.com/Emmanuel1440/Chat--App-server",
-    image: "/chat.png",         
-    videoSrc: "/video/chat-demo.mp4",      // public/video/chat-demo.mp4
+    image: `${import.meta.env.BASE_URL}chat.png`,
+    videoSrc: `${import.meta.env.BASE_URL}video/chat-demo.mp4`,
+
     badges: ["Web Application", "Real-Time"],
     stats: { items: 5, focal: "WebSocket Pipeline", detail: "JWT Auth Layer" },
     overview: "A lightweight chat solution configured to establish concurrent bidirectional node sockets for zero-latency cross-client message execution.",
@@ -52,8 +58,9 @@ const projects = [
       "A comprehensive cargo and logistics management platform designed to streamline shipment tracking, cargo registration, customer management, and delivery operations. The system provides an efficient workflow for managing shipping processes while improving operational visibility and record management.",
     tech: ["LARAVEL", "REACT", "MYSQL", "PHP", "VITE"],
     github: "https://github.com/Emmanuel1440/cargo-shipping-management-system",
-    image: "/cargo.png",        // public/cargo-screenshot.jpg
-    videoSrc: "/video/cargo-demo.mp4",     // public/video/cargo-demo.mp4
+    image: `${import.meta.env.BASE_URL}cargo.png`,
+    videoSrc: `${import.meta.env.BASE_URL}video/cargo-demo.mp4`,
+
     badges: ["Full Stack", "Logistics Software"],
     stats: { items: 5, focal: "Relational Mapping", detail: "Operational Audits" },
     overview: "A structural asset platform allowing logistical personnel to allocate package IDs, track milestones, and update relational data models securely.",
@@ -66,8 +73,9 @@ const projects = [
       "A modern hotel management application that simplifies room reservations, guest management, booking administration, and hotel operations through an intuitive dashboard, enabling efficient management of daily hospitality services.",
     tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5", "PHP", "MySQL"],
     github: "https://github.com/Emmanuel1440/Delta_Hotel",
-    image: "/delta.png",        // public/hotel-screenshot.jpg
-    videoSrc: "/video/delta-demo.mp4",     // public/video/hotel-demo.mp4
+    image: `${import.meta.env.BASE_URL}delta.png`,
+    videoSrc: `${import.meta.env.BASE_URL}video/delta-demo.mp4`,
+
     badges: ["Web Application", "Admin Dashboard"],
     stats: { items: 6, focal: "Relational Booking", detail: "Interactive Tables" },
     overview: "An administrative management tool targeted at tracking guest cycles, processing scheduling conflicts, and parsing dynamic room status options.",
@@ -80,8 +88,9 @@ const projects = [
       "A responsive weather application that displays real-time weather information, forecasts, and location-based updates through external weather APIs with a clean and interactive user interface.",
     tech: ["REACT", "JAVASCRIPT", "API", "CSS"],
     github: "https://github.com/Emmanuel1440/city-weather-app",
-    image: "/weather.png",      // public/weather-screenshot.jpg
-    videoSrc: "/video/weather-demo.mp4",   // public/video/weather-demo.mp4
+    image: `${import.meta.env.BASE_URL}weather.png`,
+    videoSrc: `${import.meta.env.BASE_URL}video/weather-demo.mp4`,
+
     badges: ["Frontend Project", "API Integration"],
     stats: { items: 4, focal: "Asynchronous APIs", detail: "State Interpolation" },
     overview: "A lightweight dynamic frontend layer client fetching data metrics from remote APIs, interpreting JSON responses dynamically inside optimized render nodes.",

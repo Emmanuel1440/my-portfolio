@@ -55,12 +55,13 @@ function Hero() {
             >
               View Creations
             </a>
-            <a
-              href="#"
-              className="px-8 py-4 rounded-2xl border border-stone-300 bg-white/80 text-[#231b15] font-bold text-sm transition inline-flex items-center gap-2 hover:bg-white active:scale-95 duration-300"
-            >
-              <FiDownload /> Download CV
-            </a>
+          <a
+            href={`${import.meta.env.BASE_URL}Emmanuel_CV.pdf`}
+            download="Emmanuel_CV.pdf"
+            className="px-8 py-4 rounded-2xl border border-stone-300 bg-white/80 text-[#231b15] font-bold text-sm transition inline-flex items-center gap-2 hover:bg-white active:scale-95 duration-300"
+          >
+            <FiDownload /> Download CV
+          </a>
           </motion.div>
 
           <motion.div
@@ -85,7 +86,8 @@ function Hero() {
           <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-amber-500 via-amber-600 to-[#231b15] blur-md opacity-40 animate-pulse" />
           <div className="relative bg-slate-900/90 border border-slate-700 rounded-[2rem] p-3 shadow-2xl">
             <div className="rounded-[1.7rem] overflow-hidden [clip-path:polygon(8%_0,92%_0,100%_20%,100%_80%,92%_100%,8%_100%,0_80%,0_20%)]">
-              <img src="/profile.jpeg" alt="Emmanuel Wanjala profile" className="w-full h-[420px] object-cover" />
+              <img src={`${import.meta.env.BASE_URL}profile.jpeg`} alt="Emmanuel Wanjala profile" className="w-full h-[420px] object-cover" />
+          
             </div>
           </div>
         </motion.div>
