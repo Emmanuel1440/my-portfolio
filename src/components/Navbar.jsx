@@ -2,14 +2,16 @@ import { siteData } from "../data/site"
 
 function Navbar() {
   return (
-    <header className="fixed top-0 left-0 w-full bg-slate-950/80 backdrop-blur border-b border-slate-800 z-50">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <h1 className="text-white font-bold text-lg">{siteData.name}</h1>
-        <ul className="hidden md:flex gap-6 text-slate-300">
-          <li><a href="#about" className="hover:text-cyan-400">About</a></li>
-          <li><a href="#projects" className="hover:text-cyan-400">Projects</a></li>
-          <li><a href="#skills" className="hover:text-cyan-400">Skills</a></li>
-          <li><a href="#contact" className="hover:text-cyan-400">Contact</a></li>
+    <header className="fixed top-0 left-0 w-full bg-[#faf7f2]/30 backdrop-blur-xl z-50 transition-all duration-300">
+      <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <h1 className="text-stone-950 font-black tracking-tight text-xl hover:text-rose-600 transition duration-300 cursor-pointer">
+          {siteData.name}.
+        </h1>
+        <ul className="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest text-stone-600">
+          <li><a href="#about" className="hover:text-rose-500 transition-colors">About</a></li>
+          <li><a href="#skills" className="hover:text-purple-500 transition-colors">Skills</a></li>
+          <li><a href="#projects" className="hover:text-amber-500 transition-colors">Projects</a></li>
+          <li><a href="#contact" className="hover:text-sky-500 transition-colors">Contact</a></li>
         </ul>
       </nav>
     </header>

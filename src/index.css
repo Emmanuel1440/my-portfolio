@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+:root {
+  --ink-espresso: #231b15;   /* Rich deep espresso chocolate for typography */
+  --ink-muted: #6e645c;      /* Soft matte cocoa for body descriptions */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink-espresso);
+  position: relative;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+  
+  /* Underlying warm ivory tone */
+  background-color: #f2efe9; 
+}
+
+/* --- Background Image Layer --- */
+body::before {
+  content: "";
+  position: fixed; 
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image: url('/bg-studio.jpg'); 
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  
+  /* Balanced opacity: not too bright, not too dark */
+  opacity: 0.65; 
+}
+
+/* --- Matte Luxury Overlay (Tones down the harsh whites) --- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  
+  /* Applies a soft, warm matte tint over the image to elegantly reduce contrast and glare */
+  background: rgba(235, 232, 224, 0.45);
+}
