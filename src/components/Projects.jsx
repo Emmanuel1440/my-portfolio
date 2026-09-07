@@ -1,8 +1,23 @@
 import { useState } from "react"
 import Reveal from "./Reveal"
-import { FiGithub, FiPlay, FiX, FiLayers } from "react-icons/fi"
+import { FiGithub, FiPlay, FiX, FiLayers, FiExternalLink } from "react-icons/fi"
 
 const projects = [
+  {
+    id: "hayai-solutions",
+    title: "Hayai Solutions Company Website",
+    description:
+      "A modern, high-performance corporate web platform engineered for Hayai Solutions. Features dynamic single-page sections, mobile-first responsive architecture, custom domain email integration, search engine optimization (SEO), and smooth UI animations.",
+    tech: ["HTML5", "CSS3", "JAVASCRIPT", "BOOTSTRAP 5", "PHP", "APACHE"],
+    github: "https://github.com/Emmanuel1440/hayai-solutions",
+    liveUrl: "https://hayaisolutions.co.ke/",
+    liveLabel: "Visit Website",
+    image: `${import.meta.env.BASE_URL}hayai.jpg`,
+    badges: ["Featured", "Client Project", "Live Site"],
+    stats: { items: 6, focal: "Responsive Web UI", detail: "SEO & Custom Hosting" },
+    overview: "A clean, performant enterprise site built to deliver fast load times, responsive navigation, and direct lead capturing for technology services.",
+    challenges: "Optimizing asset compression and asset loading pipelines on custom production cPanel hosting environments for instant render times."
+  },
   {
     id: "ai-spam",
     title: "AI-Based Email Spam Classification System",
@@ -10,12 +25,8 @@ const projects = [
       "A machine learning-powered web application that automatically classifies Gmail emails as spam or legitimate. Built using Flask, Logistic Regression, TF-IDF vectorization, and the Gmail API with OAuth 2.0 authentication. The system periodically scans unread emails and presents classification results through an interactive dashboard.",
     tech: ["PYTHON", "FLASK", "SCIKIT-LEARN", "TF-IDF", "LOGISTIC REGRESSION", "GMAIL API", "SQLITE"],
     github: "https://github.com/Emmanuel1440/AI-Email-Spam-Classification-System",
-    
-
     image: `${import.meta.env.BASE_URL}spam.png`,
     videoSrc: `${import.meta.env.BASE_URL}video/spam-demo.mp4`,
-
-   
     badges: ["Featured", "Machine Learning", "Academic Project"],
     stats: { items: 7, focal: "Machine Learning", detail: "OAuth Authentication" },
     overview: "This system integrates directly with user accounts via OAuth 2.0, securely scanning incoming data pipelines and transforming unstructured natural language text streams into classification tensors in real-time.",
@@ -30,7 +41,6 @@ const projects = [
     github: "https://github.com/Emmanuel1440/tisa-security",
     image: `${import.meta.env.BASE_URL}tisa.png`,
     videoSrc: `${import.meta.env.BASE_URL}video/tisa-demo.mp4`,
-
     badges: ["Featured", "Client Project", "Full Stack"],
     stats: { items: 6, focal: "Full Stack architecture", detail: "SEO & Form Management" },
     overview: "A highly dynamic enterprise informational portal tailor-made to handle public queries, dynamic careers routing, and modular component architecture.",
@@ -45,7 +55,6 @@ const projects = [
     github: "https://github.com/Emmanuel1440/Chat--App-server",
     image: `${import.meta.env.BASE_URL}chat.png`,
     videoSrc: `${import.meta.env.BASE_URL}video/chat-demo.mp4`,
-
     badges: ["Web Application", "Real-Time"],
     stats: { items: 5, focal: "WebSocket Pipeline", detail: "JWT Auth Layer" },
     overview: "A lightweight chat solution configured to establish concurrent bidirectional node sockets for zero-latency cross-client message execution.",
@@ -60,7 +69,6 @@ const projects = [
     github: "https://github.com/Emmanuel1440/cargo-shipping-management-system",
     image: `${import.meta.env.BASE_URL}cargo.png`,
     videoSrc: `${import.meta.env.BASE_URL}video/cargo-demo.mp4`,
-
     badges: ["Full Stack", "Logistics Software"],
     stats: { items: 5, focal: "Relational Mapping", detail: "Operational Audits" },
     overview: "A structural asset platform allowing logistical personnel to allocate package IDs, track milestones, and update relational data models securely.",
@@ -75,7 +83,6 @@ const projects = [
     github: "https://github.com/Emmanuel1440/Delta_Hotel",
     image: `${import.meta.env.BASE_URL}delta.png`,
     videoSrc: `${import.meta.env.BASE_URL}video/delta-demo.mp4`,
-
     badges: ["Web Application", "Admin Dashboard"],
     stats: { items: 6, focal: "Relational Booking", detail: "Interactive Tables" },
     overview: "An administrative management tool targeted at tracking guest cycles, processing scheduling conflicts, and parsing dynamic room status options.",
@@ -90,13 +97,12 @@ const projects = [
     github: "https://github.com/Emmanuel1440/city-weather-app",
     image: `${import.meta.env.BASE_URL}weather.png`,
     videoSrc: `${import.meta.env.BASE_URL}video/weather-demo.mp4`,
-
     badges: ["Frontend Project", "API Integration"],
     stats: { items: 4, focal: "Asynchronous APIs", detail: "State Interpolation" },
     overview: "A lightweight dynamic frontend layer client fetching data metrics from remote APIs, interpreting JSON responses dynamically inside optimized render nodes.",
     challenges: "Handling rate-limit delays gracefully while preserving instant layout responsiveness for the user search input fields."
   }
-]
+];
 
 function Projects() {
   const [activeModalProject, setActiveModalProject] = useState(null)
@@ -127,7 +133,16 @@ function Projects() {
                     isFlagship ? "md:col-span-2 grid lg:grid-cols-12 gap-2" : ""
                   }`}
                 >
-                  <div className={`overflow-hidden relative bg-stone-100 cursor-pointer ${isFlagship ? "lg:col-span-5 h-full min-h-[280px]" : "h-52"}`} onClick={() => setActiveModalProject(project)}>
+                  <div 
+                    className={`overflow-hidden relative bg-stone-100 cursor-pointer ${isFlagship ? "lg:col-span-5 h-full min-h-[280px]" : "h-52"}`} 
+                    onClick={() => {
+                      if (project.liveUrl) {
+                        window.open(project.liveUrl, "_blank", "noopener,noreferrer")
+                      } else {
+                        setActiveModalProject(project)
+                      }
+                    }}
+                  >
                     <img
                       src={project.image}
                       alt={`${project.title} screenshot`}
@@ -188,15 +203,26 @@ function Projects() {
                           View Details
                         </button>
 
-                        <button
-                          onClick={() => {
-                            setActiveModalProject(project)
-                            setIsPlayingVideo(true)
-                          }}
-                          className="px-4 py-2.5 rounded-xl border border-stone-300 bg-white hover:border-[#231b15] text-[#231b15] font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-all duration-200"
-                        >
-                          <FiPlay size={12} className="fill-current" /> Live Demo
-                        </button>
+                        {project.liveUrl ? (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2.5 rounded-xl border border-amber-500 bg-amber-500 hover:bg-amber-600 text-[#231b15] hover:text-white font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-all duration-200"
+                          >
+                            <FiExternalLink size={12} /> {project.liveLabel || "Visit Website"}
+                          </a>
+                        ) : (
+                          <button
+                            onClick={() => {
+                              setActiveModalProject(project)
+                              setIsPlayingVideo(true)
+                            }}
+                            className="px-4 py-2.5 rounded-xl border border-stone-300 bg-white hover:border-[#231b15] text-[#231b15] font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-all duration-200"
+                          >
+                            <FiPlay size={12} className="fill-current" /> Live Demo
+                          </button>
+                        )}
                         
                         <a
                           href={project.github}
@@ -238,7 +264,7 @@ function Projects() {
             </h3>
 
             <div className="w-full h-64 rounded-2xl overflow-hidden mb-6 bg-stone-900 border border-stone-200 relative">
-              {isPlayingVideo ? (
+              {activeModalProject.videoSrc && isPlayingVideo ? (
                 <video 
                   src={activeModalProject.videoSrc} 
                   controls 
@@ -246,17 +272,29 @@ function Projects() {
                   className="w-full h-full object-contain"
                 />
               ) : (
-                <>
+                <div 
+                  className="w-full h-full relative cursor-pointer group"
+                  onClick={() => {
+                    if (activeModalProject.liveUrl) {
+                      window.open(activeModalProject.liveUrl, "_blank", "noopener,noreferrer")
+                    } else if (activeModalProject.videoSrc) {
+                      setIsPlayingVideo(true)
+                    }
+                  }}
+                >
                   <img src={activeModalProject.image} alt={activeModalProject.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <button
-                      onClick={() => setIsPlayingVideo(true)}
-                      className="p-5 rounded-full bg-amber-500 text-[#231b15] hover:bg-white hover:scale-110 shadow-2xl transition-all duration-300 flex items-center justify-center"
-                    >
-                      <FiPlay size={24} className="fill-current ml-0.5" />
-                    </button>
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-all">
+                    {activeModalProject.liveUrl ? (
+                      <span className="px-5 py-3 rounded-xl bg-amber-500 text-[#231b15] font-bold text-xs tracking-wider inline-flex items-center gap-2 shadow-2xl group-hover:scale-105 transition-transform">
+                        <FiExternalLink size={16} /> Open Live Site
+                      </span>
+                    ) : (
+                      <button className="p-5 rounded-full bg-amber-500 text-[#231b15] hover:bg-white hover:scale-110 shadow-2xl transition-all duration-300 flex items-center justify-center">
+                        <FiPlay size={24} className="fill-current ml-0.5" />
+                      </button>
+                    )}
                   </div>
-                </>
+                </div>
               )}
             </div>
 
@@ -288,7 +326,7 @@ function Projects() {
               </div>
             </div>
 
-            <div className="flex gap-4 mt-8 pt-6 border-t border-stone-200">
+            <div className="flex flex-wrap gap-4 mt-8 pt-6 border-t border-stone-200">
               <a
                 href={activeModalProject.github}
                 target="_blank"
@@ -297,8 +335,19 @@ function Projects() {
               >
                 <FiGithub /> Source Code
               </a>
+
+              {activeModalProject.liveUrl && (
+                <a
+                  href={activeModalProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 rounded-xl bg-amber-500 text-[#231b15] hover:bg-amber-600 hover:text-white font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-colors duration-200"
+                >
+                  <FiExternalLink /> {activeModalProject.liveLabel || "Visit Website"}
+                </a>
+              )}
               
-              {!isPlayingVideo && (
+              {!isPlayingVideo && activeModalProject.videoSrc && (
                 <button
                   onClick={() => setIsPlayingVideo(true)}
                   className="px-5 py-3 rounded-xl border border-stone-300 bg-white text-[#231b15] hover:bg-stone-50 font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-colors duration-200"
