@@ -18,7 +18,6 @@ const projects = [
     overview: "A clean, performant enterprise site built to deliver fast load times, responsive navigation, and direct lead capturing for technology services.",
     challenges: "Optimizing asset compression and asset loading pipelines on custom production cPanel hosting environments for instant render times."
   },
-
   {
     id: "doc-editor",
     title: "Doc Editor Pro",
@@ -34,7 +33,6 @@ const projects = [
     overview: "An intuitive web editor engineered to manipulate text layers, electronic signature components, and dynamic positioning with real-time previewing.",
     challenges: "Managing complex drag-and-drop element rotation matrices and synchronizing global history states without causing frame drops."
   },
-  
   {
     id: "ai-spam",
     title: "AI-Based Email Spam Classification System",
@@ -131,156 +129,162 @@ function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 text-[#231b15] relative z-10">
+    <section id="projects" className="py-20 relative z-10">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
           <div className="mb-16 flex items-center gap-3">
-            <h2 className="text-3xl font-black tracking-tight text-[#231b15]">Exhibition Hall</h2>
-            <div className="h-[2px] flex-1 bg-gradient-to-r from-[#231b15]/10 to-transparent ml-4"></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-10 items-start">
-            {projects.map((project, index) => {
-              const isFlagship = index === 0
-
-              return (
-                <article
-                  key={project.id}
-                  className={`rounded-[2.5rem_1rem_2.5rem_1rem] bg-white/50 backdrop-blur-xl border border-white/40 shadow-md hover:border-[#231b15] hover:-translate-y-1.5 transition-all duration-500 flex flex-col overflow-hidden group ${
-                    isFlagship ? "md:col-span-2 grid lg:grid-cols-12 gap-2" : ""
-                  }`}
-                >
-                  <div 
-                    className={`overflow-hidden relative bg-stone-100 cursor-pointer ${isFlagship ? "lg:col-span-5 h-full min-h-[280px]" : "h-52"}`} 
-                    onClick={() => {
-                      if (project.liveUrl) {
-                        window.open(project.liveUrl, "_blank", "noopener,noreferrer")
-                      } else {
-                        setActiveModalProject(project)
-                      }
-                    }}
-                  >
-                    <img
-                      src={project.image}
-                      alt={`${project.title} screenshot`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-stone-900/10 opacity-60 group-hover:opacity-20 transition-opacity pointer-events-none" />
-                  </div>
-
-                  <div className={`p-8 flex flex-col justify-between ${isFlagship ? "lg:col-span-7" : ""}`}>
-                    <div>
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {project.badges.map((badge) => (
-                          <span
-                            key={badge}
-                            className={`text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full ${
-                              badge === "Featured" ? "bg-amber-500 text-[#231b15]" : "bg-[#231b15]/5 text-[#231b15]/80"
-                            }`}
-                          >
-                            {badge}
-                          </span>
-                        ))}
-                      </div>
-
-                      <h3 className="text-xl font-black text-[#231b15] mb-3 tracking-tight group-hover:text-amber-600 transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <p className="text-[#6e645c] text-sm font-normal leading-relaxed mb-6 line-clamp-3">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    <div>
-                      <div className="flex flex-wrap gap-1 mb-5">
-                        {project.tech.slice(0, 4).map((item) => (
-                          <span key={item} className="text-[9px] font-bold px-2 py-0.5 rounded bg-white text-stone-600 border border-stone-200/60">
-                            {item}
-                          </span>
-                        ))}
-                        {project.tech.length > 4 && (
-                          <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-stone-100 text-stone-500">
-                            +{project.tech.length - 4} MORE
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center gap-2 py-3 px-4 mb-6 rounded-xl bg-stone-50/60 border border-stone-200/40 text-[11px] text-[#6e645c]">
-                        <FiLayers className="text-amber-600 shrink-0" size={12} />
-                        <span className="font-bold text-[#231b15]">{project.stats.items} Tools Used</span>
-                        <span className="text-stone-300">|</span>
-                        <span className="truncate">{project.stats.focal}</span>
-                      </div>
-
-                      <div className="flex flex-wrap gap-3 items-center pt-4 border-t border-stone-200/60">
-                        <button
-                          onClick={() => setActiveModalProject(project)}
-                          className="px-5 py-2.5 rounded-xl bg-[#231b15] hover:bg-amber-600 hover:text-white text-white font-bold text-xs tracking-wider transition-all active:scale-95 duration-300"
-                        >
-                          View Details
-                        </button>
-
-                        {project.liveUrl ? (
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2.5 rounded-xl border border-amber-500 bg-amber-500 hover:bg-amber-600 text-[#231b15] hover:text-white font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-all duration-200"
-                          >
-                            <FiExternalLink size={12} /> {project.liveLabel || "Visit Website"}
-                          </a>
-                        ) : (
-                          <button
-                            onClick={() => {
-                              setActiveModalProject(project)
-                              setIsPlayingVideo(true)
-                            }}
-                            className="px-4 py-2.5 rounded-xl border border-stone-300 bg-white hover:border-[#231b15] text-[#231b15] font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-all duration-200"
-                          >
-                            <FiPlay size={12} className="fill-current" /> Live Demo
-                          </button>
-                        )}
-                        
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-2.5 ml-auto rounded-xl border border-stone-200 text-[#6e645c] hover:text-[#231b15] hover:bg-white transition-all duration-200"
-                          title="View Codebase"
-                        >
-                          <FiGithub size={15} />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              )
-            })}
+            <h2 className="text-3xl font-black tracking-tight text-stone-900 dark:text-white">Exhibition Hall</h2>
+            <div className="h-[2px] flex-1 bg-stone-300 dark:bg-stone-700 ml-4"></div>
           </div>
         </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          {projects.map((project, index) => {
+            const isFlagship = index === 0
+
+            return (
+              <article
+                key={project.id}
+                className={`rounded-3xl bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-stone-800 shadow-xl overflow-hidden flex flex-col transition-all duration-300 ${
+                  isFlagship ? "md:col-span-2 grid grid-cols-1 lg:grid-cols-12 gap-0" : ""
+                }`}
+              >
+                {/* Image Container */}
+                <div 
+                  className={`overflow-hidden relative bg-stone-800 cursor-pointer ${
+                    isFlagship ? "lg:col-span-5 h-64 lg:h-full min-h-[260px]" : "h-56"
+                  }`} 
+                  onClick={() => {
+                    if (project.liveUrl) {
+                      window.open(project.liveUrl, "_blank", "noopener,noreferrer")
+                    } else {
+                      setActiveModalProject(project)
+                    }
+                  }}
+                >
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-out"
+                  />
+                </div>
+
+                {/* Card Details */}
+                <div className={`p-6 md:p-8 flex flex-col justify-between ${isFlagship ? "lg:col-span-7" : ""}`}>
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {project.badges.map((badge) => (
+                        <span
+                          key={badge}
+                          className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full ${
+                            badge === "Featured" 
+                              ? "bg-amber-500 text-stone-950" 
+                              : "bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300"
+                          }`}
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
+
+                    <h3 className="text-xl font-bold text-stone-900 dark:text-white mb-3 tracking-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-stone-600 dark:text-stone-300 text-sm leading-relaxed mb-6 line-clamp-3">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {project.tech.slice(0, 4).map((item) => (
+                        <span key={item} className="text-[10px] font-semibold px-2.5 py-1 rounded-md bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
+                          {item}
+                        </span>
+                      ))}
+                      {project.tech.length > 4 && (
+                        <span className="text-[10px] font-semibold px-2.5 py-1 rounded-md bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-400">
+                          +{project.tech.length - 4} MORE
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-2 py-2.5 px-3 mb-6 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-200 dark:border-stone-700/60 text-xs text-stone-600 dark:text-stone-400">
+                      <FiLayers className="text-amber-500 shrink-0" size={14} />
+                      <span className="font-bold text-stone-900 dark:text-stone-200">{project.stats.items} Tools</span>
+                      <span>•</span>
+                      <span className="truncate">{project.stats.focal}</span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3 items-center pt-4 border-t border-stone-200 dark:border-stone-800">
+                      <button
+                        onClick={() => setActiveModalProject(project)}
+                        className="px-4 py-2.5 rounded-xl bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 font-bold text-xs tracking-wider hover:opacity-90 transition-opacity"
+                      >
+                        View Details
+                      </button>
+
+                      {project.liveUrl ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2.5 rounded-xl border border-amber-500 bg-amber-500 text-stone-950 font-bold text-xs tracking-wider inline-flex items-center gap-2"
+                        >
+                          <FiExternalLink size={12} /> {project.liveLabel || "Visit Website"}
+                        </a>
+                      ) : (
+                        <button
+                          onClick={() => {
+                            setActiveModalProject(project)
+                            setIsPlayingVideo(true)
+                          }}
+                          className="px-4 py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-transparent text-stone-900 dark:text-white font-bold text-xs tracking-wider inline-flex items-center gap-2"
+                        >
+                          <FiPlay size={12} className="fill-current" /> Live Demo
+                        </button>
+                      )}
+                      
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 ml-auto rounded-xl border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+                        title="View Codebase"
+                      >
+                        <FiGithub size={16} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            )
+          })}
+        </div>
       </div>
 
+      {/* Modal View */}
       {activeModalProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/40 backdrop-blur-md" onClick={closeModal}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md" onClick={closeModal}>
           <div 
-            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-white/95 border border-stone-200 p-8 rounded-[3rem_1rem_2.5rem_1rem] shadow-2xl"
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 md:p-8 rounded-3xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={closeModal}
-              className="absolute top-6 right-6 p-2 rounded-xl bg-stone-100 text-[#231b15] hover:bg-[#231b15] hover:text-white transition-colors duration-200"
+              className="absolute top-6 right-6 p-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-white hover:bg-stone-200"
             >
               <FiX size={18} />
             </button>
 
-            <span className="text-[10px] font-black uppercase tracking-widest text-amber-600 bg-amber-500/10 px-3 py-1 rounded-full inline-block mb-3">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-500 bg-amber-500/10 px-3 py-1 rounded-full inline-block mb-3">
               Project Specification
             </span>
-            <h3 className="text-2xl font-black text-[#231b15] tracking-tight mb-4 pr-10">
+            <h3 className="text-2xl font-bold text-stone-900 dark:text-white tracking-tight mb-4 pr-10">
               {activeModalProject.title}
             </h3>
 
-            <div className="w-full h-64 rounded-2xl overflow-hidden mb-6 bg-stone-900 border border-stone-200 relative">
+            <div className="w-full h-60 rounded-2xl overflow-hidden mb-6 bg-stone-900 border border-stone-800 relative">
               {activeModalProject.videoSrc && isPlayingVideo ? (
                 <video 
                   src={activeModalProject.videoSrc} 
@@ -300,14 +304,14 @@ function Projects() {
                   }}
                 >
                   <img src={activeModalProject.image} alt={activeModalProject.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/20 transition-all">
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     {activeModalProject.liveUrl ? (
-                      <span className="px-5 py-3 rounded-xl bg-amber-500 text-[#231b15] font-bold text-xs tracking-wider inline-flex items-center gap-2 shadow-2xl group-hover:scale-105 transition-transform">
-                        <FiExternalLink size={16} /> Open Live Site
+                      <span className="px-4 py-2.5 rounded-xl bg-amber-500 text-stone-950 font-bold text-xs inline-flex items-center gap-2">
+                        <FiExternalLink size={14} /> Open Live Site
                       </span>
                     ) : (
-                      <button className="p-5 rounded-full bg-amber-500 text-[#231b15] hover:bg-white hover:scale-110 shadow-2xl transition-all duration-300 flex items-center justify-center">
-                        <FiPlay size={24} className="fill-current ml-0.5" />
+                      <button className="p-4 rounded-full bg-amber-500 text-stone-950 shadow-2xl flex items-center justify-center">
+                        <FiPlay size={20} className="fill-current ml-0.5" />
                       </button>
                     )}
                   </div>
@@ -317,25 +321,25 @@ function Projects() {
 
             <div className="space-y-6 text-sm leading-relaxed">
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-stone-400 mb-1.5">Project Overview</h4>
-                <p className="text-[#6e645c] font-normal">{activeModalProject.description}</p>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-1.5">Project Overview</h4>
+                <p className="text-stone-600 dark:text-stone-300">{activeModalProject.description}</p>
                 {activeModalProject.overview && (
-                  <p className="text-[#6e645c] font-normal mt-2 italic border-l-2 border-amber-500/40 pl-3">{activeModalProject.overview}</p>
+                  <p className="text-stone-500 dark:text-stone-400 mt-2 italic border-l-2 border-amber-500 pl-3">{activeModalProject.overview}</p>
                 )}
               </div>
 
               {activeModalProject.challenges && (
                 <div>
-                  <h4 className="text-xs font-black uppercase tracking-wider text-stone-400 mb-1.5">Engineering Challenges Solved</h4>
-                  <p className="text-[#6e645c] font-normal">{activeModalProject.challenges}</p>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-1.5">Engineering Challenges Solved</h4>
+                  <p className="text-stone-600 dark:text-stone-300">{activeModalProject.challenges}</p>
                 </div>
               )}
 
               <div>
-                <h4 className="text-xs font-black uppercase tracking-wider text-stone-400 mb-2">Full Technologies Matrix</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">Full Technologies Matrix</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {activeModalProject.tech.map((techItem) => (
-                    <span key={techItem} className="text-[10px] font-bold px-3 py-1 rounded-md bg-stone-100 border border-stone-200 text-[#231b15]">
+                    <span key={techItem} className="text-[10px] font-semibold px-2.5 py-1 rounded-md bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-800 dark:text-stone-200">
                       {techItem}
                     </span>
                   ))}
@@ -343,12 +347,12 @@ function Projects() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-8 pt-6 border-t border-stone-200">
+            <div className="flex flex-wrap gap-4 mt-8 pt-6 border-t border-stone-200 dark:border-stone-800">
               <a
                 href={activeModalProject.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 rounded-xl bg-[#231b15] text-white hover:bg-amber-600 font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-colors duration-200"
+                className="px-5 py-3 rounded-xl bg-stone-900 dark:bg-white text-white dark:text-stone-900 font-bold text-xs inline-flex items-center gap-2"
               >
                 <FiGithub /> Source Code
               </a>
@@ -358,19 +362,10 @@ function Projects() {
                   href={activeModalProject.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-xl bg-amber-500 text-[#231b15] hover:bg-amber-600 hover:text-white font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-colors duration-200"
+                  className="px-5 py-3 rounded-xl bg-amber-500 text-stone-950 font-bold text-xs inline-flex items-center gap-2"
                 >
                   <FiExternalLink /> {activeModalProject.liveLabel || "Visit Website"}
                 </a>
-              )}
-              
-              {!isPlayingVideo && activeModalProject.videoSrc && (
-                <button
-                  onClick={() => setIsPlayingVideo(true)}
-                  className="px-5 py-3 rounded-xl border border-stone-300 bg-white text-[#231b15] hover:bg-stone-50 font-bold text-xs tracking-wider inline-flex items-center gap-2 transition-colors duration-200"
-                >
-                  <FiPlay size={12} className="fill-current" /> Play Live Demo Video
-                </button>
               )}
             </div>
           </div>
