@@ -18,6 +18,23 @@ const projects = [
     overview: "A clean, performant enterprise site built to deliver fast load times, responsive navigation, and direct lead capturing for technology services.",
     challenges: "Optimizing asset compression and asset loading pipelines on custom production cPanel hosting environments for instant render times."
   },
+
+  {
+    id: "doc-editor",
+    title: "Doc Editor Pro",
+    description:
+      "A feature-rich interactive document editor and web application built for creating, styling, placing text annotations, and inserting signatures with state-tracked undo/redo history.",
+    tech: ["REACT", "TYPESCRIPT", "TAILWIND CSS", "VITE"],
+    github: "https://github.com/Emmanuel1440/doc-editor",
+    liveUrl: "https://doceditor-pro.vercel.app/",
+    liveLabel: "Visit Website",
+    image: `${import.meta.env.BASE_URL}doc-editor.jpg`,
+    badges: ["Featured", "Web Application", "Live Site"],
+    stats: { items: 4, focal: "Canvas & Document Manipulation", detail: "State Management" },
+    overview: "An intuitive web editor engineered to manipulate text layers, electronic signature components, and dynamic positioning with real-time previewing.",
+    challenges: "Managing complex drag-and-drop element rotation matrices and synchronizing global history states without causing frame drops."
+  },
+  
   {
     id: "ai-spam",
     title: "AI-Based Email Spam Classification System",
