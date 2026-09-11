@@ -20,7 +20,7 @@ const projects = [
   },
   {
     id: "doc-editor",
-    title: "Doc Editor Pro",
+    title: "Doc Editor ",
     description:
       "A feature-rich interactive document editor and web application built for creating, styling, placing text annotations, and inserting signatures with state-tracked undo/redo history.",
     tech: ["REACT", "TYPESCRIPT", "TAILWIND CSS", "VITE"],
