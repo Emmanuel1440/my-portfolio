@@ -19,8 +19,23 @@ const projects = [
     challenges: "Optimizing asset compression and asset loading pipelines on custom production cPanel hosting environments for instant render times."
   },
   {
+    id: "incense-sanctuary",
+    title: "Incense Sanctuary",
+    description:
+      "An elegant, high-performance web platform tailored for Incense Sanctuary. Features custom product showcase layouts, mobile-responsive user interface, seamless navigation, optimized asset delivery, and direct customer engagement tools.",
+    tech: ["HTML5", "CSS3", "JAVASCRIPT", "PHP", "BOOTSTRAP"],
+    github: "https://github.com/Emmanuel1440/incense-sanctuary",
+    liveUrl: "https://incense-sanctuary.free.je/",
+    liveLabel: "Visit Website",
+    image: `${import.meta.env.BASE_URL}incense.jpg`,
+    badges: ["Featured", "Live Site", "Web Application"],
+    stats: { items: 5, focal: "E-Commerce & UI Design", detail: "Custom Domain Deployment" },
+    overview: "A refined brand presence platform built to showcase products with an intuitive user experience and responsive layout across all device screens.",
+    challenges: "Configuring cross-platform responsive image scaling and fast rendering pipelines on live hosting servers."
+  },
+  {
     id: "doc-editor",
-    title: "Doc Editor ",
+    title: "Doc Editor",
     description:
       "A feature-rich interactive document editor and web application built for creating, styling, placing text annotations, and inserting signatures with state-tracked undo/redo history.",
     tech: ["REACT", "TYPESCRIPT", "TAILWIND CSS", "VITE"],
